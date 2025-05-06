@@ -1,45 +1,44 @@
-// Swiper Init
-const swiper = new Swiper('.swiper', {
-  slidesPerView: 2.2,
-  spaceBetween: 15,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 4.5
-    },
-    1024: {
-      slidesPerView: 6
-    }
+const audioPlayer = document.getElementById('audio-player');
+const searchOverlay = document.getElementById('searchOverlay');
+const searchButtonIcon = document.querySelector('.search-btn i');
+
+const tracks = {
+  sample1: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+  sample2: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+  sample3: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+};
+
+function playAudio(trackKey) {
+  if (tracks[trackKey]) {
+    audioPlayer.src = tracks[trackKey];
+    audioPlayer.style.display = "block";
+    audioPlayer.play();
   }
+}
+
+function toggleSearch() {
+  const isVisible = searchOverlay.style.display === "flex";
+  searchOverlay.style.display = isVisible ? "none" : "flex";
+  searchButtonIcon.className = isVisible ? "fas fa-search" : "fas fa-times";
+}
+
+// Initialize Swiper
+document.addEventListener('DOMContentLoaded', () => {
+  new Swiper('.mySwiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    freeMode: true,
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // }
+  });
 });
 
-// Toggle search overlay
-const searchBtn = document.getElementById('searchBtn');
-const searchOverlay = document.getElementById('searchOverlay');
-const closeSearch = document.getElementById('closeSearch');
-
-searchBtn.onclick = () => {
-  searchOverlay.style.display = 'flex';
-};
-
-closeSearch.onclick = () => {
-  searchOverlay.style.display = 'none';
-};
-
-// Toggle mobile menu
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-let menuOpen = false;
-
-menuToggle.onclick = () => {
-  if (!menuOpen) {
-    mobileMenu.style.right = '0';
-    menuOpen = true;
-  } else {
-    mobileMenu.style.right = '-220px';
-    menuOpen = false;
+function handleOverlayClick(e) {
+  const box = e.target.closest('.search-box');
+  if (!box) {
+    toggleSearch();
   }
-};
+}
+

@@ -3,99 +3,578 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Netflix UI Clone</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <title>AudioFlix</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
   <header>
-    <div class="header-left">
-      <h1 class="logo">THE SPOT</h1>
-    </div>
-    <div class="header-right">
-      <button id="searchBtn" class="icon-btn"><i class="fas fa-search"></i></button>
-      <button id="menuBtn" class="icon-btn"><i class="fas fa-bars"></i></button>
-    </div>
+    <div class="logo">🎵 AudioFlix</div>
+    <button class="search-btn" onclick="toggleSearch()">
+      <i class="fas fa-search"></i>
+    </button>
   </header>
 
-  <!-- Slide-out mobile menu -->
-  <div id="mobileMenu">
-    <a href="#">Home</a>
-    <a href="#">Series</a>
-    <a href="#">Movies</a>
-    <a href="#">My List</a>
-  </div>
-
-  <!-- Fullscreen search overlay -->
-  <div id="searchOverlay">
-    <input type="text" placeholder="Search movies, series..." />
-    <button id="closeSearch" class="icon-btn"><i class="fas fa-times"></i></button>
-  </div>
-
-  <!-- Main carousel -->
-  <section class="movie-slider">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <!-- Replace src with your local image paths -->
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <div class="swiper-slide card">
-          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
-          <div class="overlay"><button class="play-button">▶</button></div>
-        </div>
-        <!-- Add more cards as needed -->
-      </div>
-      <!-- Arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay" onclick="handleOverlayClick(event)">
+    <div class="search-box">
+      <input type="text" placeholder="Search for audio..." />
+      <button class="close-btn" onclick="toggleSearch()">
+        <i class="fa fa-times"></i>
+      </button>
     </div>
-  </section>
+  </div>
+  
+  
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <main>
+    <!-- Category -->
+    <section class="category">
+      <h2>Top Picks</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>New Releases</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Comedy</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Trending</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Pidgin</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Hausa</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Igbo</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>English</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Coming Soon</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample3')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Ambient Flow</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample1')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Chill Vibes</div>
+          </div>
+          <div class="swiper-slide card" onclick="playAudio('sample2')">
+            <img src="assets/images/street-pali-logo.jpeg" />
+            <div class="play-overlay"><i class="fas fa-play"></i></div>
+            <div class="info">Focus Beats</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Add more categories the same way -->
+
+    <footer class="custom-footer">
+      <div class="footer-nav">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Our Work</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Listen</a>
+      </div>
+    
+      <p class="footer-mailing"><span>📌</span> Stay Updated — Join Our Mailing List</p>
+    
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+      </div>
+    
+      <p class="footer-copy">&copy; Giant Affairs 2025</p>
+    </footer>
+    
+  </main>
+
+  <audio id="audio-player" controls style="display: none;"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
