@@ -1,10 +1,101 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spot Media Online</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix UI Clone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <img src="assets/images/Picture2.jpg">
+
+  <header>
+    <div class="header-left">
+      <h1 class="logo">THE SPOT</h1>
+    </div>
+    <div class="header-right">
+      <button id="searchBtn" class="icon-btn"><i class="fas fa-search"></i></button>
+      <button id="menuBtn" class="icon-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- Slide-out mobile menu -->
+  <div id="mobileMenu">
+    <a href="#">Home</a>
+    <a href="#">Series</a>
+    <a href="#">Movies</a>
+    <a href="#">My List</a>
+  </div>
+
+  <!-- Fullscreen search overlay -->
+  <div id="searchOverlay">
+    <input type="text" placeholder="Search movies, series..." />
+    <button id="closeSearch" class="icon-btn"><i class="fas fa-times"></i></button>
+  </div>
+
+  <!-- Main carousel -->
+  <section class="movie-slider">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- Replace src with your local image paths -->
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 1">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 2">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <div class="swiper-slide card">
+          <img src="assets/images/street-pali-logo.jpeg" alt="Movie 3">
+          <div class="overlay"><button class="play-button">▶</button></div>
+        </div>
+        <!-- Add more cards as needed -->
+      </div>
+      <!-- Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
