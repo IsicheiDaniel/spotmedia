@@ -285,11 +285,42 @@ main {
   margin: 0 auto;
 }
 
+.featured-image-wrapper {
+  position: relative;
+  width: 400px;
+  height: 5000px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 .featured-image {
-  width: 450px;
-  height: 400px;
+  width: 400px;
+  height: 350px;
   object-fit: cover;
   border-radius: 12px;
+}
+
+.featured-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #000;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.featured-play-btn:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .featured-info {
@@ -358,6 +389,88 @@ main {
 
   .featured-buttons .btn {
     margin: 0.5rem;
+  }
+}
+
+/* Make sure featured section adapts well on mobile/tablet */
+.featured-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.featured-image-wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 350px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.featured-info {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .featured-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featured-image-wrapper {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .featured-info {
+    text-align: center;
+  }
+}
+
+/* Swiper arrows */
+.swiper-button-next-featured,
+.swiper-button-prev-featured {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  top: 45%;
+}
+
+.swiper-pagination-featured {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: #fff; /* or #222 if your background is light */
+}
+
+/* Responsive title */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.4rem;
   }
 }
 

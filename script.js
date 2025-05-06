@@ -42,3 +42,21 @@ function handleOverlayClick(e) {
   }
 }
 
+const featuredSwiper = new Swiper('.featuredSwiper', {
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  speed: 800, // smoother transition
+  spaceBetween: 30,
+  navigation: {
+    nextEl: '.swiper-button-next-featured',
+    prevEl: '.swiper-button-prev-featured',
+  },
+  pagination: {
+    el: '.swiper-pagination-featured',
+    clickable: true,
+  }
+});
+
