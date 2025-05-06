@@ -2,10 +2,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #111;
   color: white;
   overflow-x: hidden;
@@ -268,121 +268,157 @@ main {
   }
 }
 
-
-/* footer */
-.footer {
-  background-color: #121212;
-  color: #ccc;
+/* featured drama */
+.featured-drama {
+  background-color: #1a1a1a;
+  color: #fff;
   padding: 3rem 1.5rem;
-  text-align: center;
 }
 
-.footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
+.featured-content {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Footer Links */
-.footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.featured-image {
+  width: 450px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.footer-links a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s;
+.featured-info {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
 }
 
-.footer-links a:hover {
-  color: #fff;
+.featured-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* Footer Bottom Text */
-.footer-bottom p {
-  font-size: 0.9rem;
-  color: #999;
-}
-
-/* Newsletter Signup */
-.footer-newsletter h4 {
-  margin-bottom: 0.5rem;
+.featured-description {
   font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.featured-buttons .btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0.5rem;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+}
+
+.featured-buttons .btn:hover {
+  background-color: #000;
   color: #fff;
 }
 
-.footer-newsletter form {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.footer-newsletter input {
-  padding: 0.8rem 1rem;
-  border-radius: 6px;
-  border: none;
-  width: 250px;
-  max-width: 80%;
-}
-
-.footer-newsletter button {
-  padding: 0.8rem 1.2rem;
-  border: none;
+.btn-primary {
   background-color: #ff5e57;
   color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.footer-newsletter button:hover {
-  background-color: #ff3b3b;
+.btn-primary:hover {
+  background-color: #e14e47;
 }
 
-/* Responsive Tweaks */
+.btn-secondary {
+  background-color: #333;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #444;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .footer-content {
-    padding: 0 1rem;
-  }
-
-  .footer-links {
-    gap: 1rem;
-  }
-
-  .footer-newsletter form {
+  .featured-content {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
-  .footer-newsletter input,
-  .footer-newsletter button {
-    width: 100%;
-    max-width: 320px;
+  .featured-image {
+    max-width: 90%;
   }
 
-  .footer-newsletter h4 {
-    font-size: 1rem;
+  .featured-buttons .btn {
+    margin: 0.5rem;
   }
 }
 
-@media (max-width: 480px) {
-  .footer-links {
-    flex-direction: column;
-    gap: 0.8rem;
+
+/* footer */
+.custom-footer {
+  background-color: #f6f6f6;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.custom-footer a {
+  text-decoration: none;
+  color: #222;
+  margin: 0 0.7rem;
+  font-weight: 500;
+}
+
+.custom-footer a:hover {
+  color: #000;
+}
+
+.footer-nav {
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-mailing {
+  margin: 0.7rem 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.footer-mailing span {
+  margin-right: 0.3rem;
+}
+
+.footer-social {
+  margin: 0.7rem 0 1.2rem;
+}
+
+.footer-social a {
+  margin: 0 0.5rem;
+}
+
+.footer-copy {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .custom-footer a {
+    display: inline-block;
+    margin: 0.5rem 0.8rem;
   }
 
-  .footer-links a {
-    font-size: 0.95rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.8rem;
+  .footer-social {
+    margin-top: 1rem;
   }
 }
