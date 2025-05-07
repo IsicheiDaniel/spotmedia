@@ -269,11 +269,36 @@ main {
 }
 
 /* featured drama */
-.featured-drama {
+/* .featured-drama {
   background-color: #1a1a1a;
   color: #fff;
   padding: 3rem 1.5rem;
   margin-bottom: 3rem;
+} */
+
+.featured-drama {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.featured-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.4; /* adjust visibility */
+}
+
+.featured-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .featured-content {
@@ -478,6 +503,14 @@ main {
   padding: 2rem 1rem;
 }
 
+/* .featured-image-wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 350px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+} */
 .featured-image-wrapper {
   width: 100%;
   max-width: 400px;
@@ -485,7 +518,15 @@ main {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* adds depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.featured-image-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* deeper on hover */
+}
+
 
 .featured-info {
   flex: 1;
