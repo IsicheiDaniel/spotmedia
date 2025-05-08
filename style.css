@@ -490,6 +490,12 @@ main {
     margin-bottom: 0.5rem;
   }
 }
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+  .featured-buttons {
+    justify-content: center;
+  }
+}
 
 /* Make sure featured section adapts well on mobile/tablet */
 .featured-content {
