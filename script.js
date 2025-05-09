@@ -26,12 +26,9 @@ function toggleSearch() {
 document.addEventListener('DOMContentLoaded', () => {
   new Swiper('.mySwiper', {
     slidesPerView: 'auto',
-    spaceBetween: 15,
+    spaceBetween: 12,
     freeMode: true,
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // }
+    
   });
 });
 
@@ -48,7 +45,7 @@ const featuredSwiper = new Swiper('.featuredSwiper', {
     delay: 5000,
     disableOnInteraction: false,
   },
-  speed: 800, // smoother transition
+  speed: 800, 
   spaceBetween: 30,
   navigation: {
     nextEl: '.swiper-button-next-featured',

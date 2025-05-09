@@ -105,7 +105,7 @@ main {
   text-align: center;
 }
 
-.play-overlay {
+/* .play-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -117,15 +117,56 @@ main {
   opacity: 0;
   transition: opacity 0.2s;
   background-color: rgba(0, 0, 0, 0.4);
+} */
+.play-overlay,
+.info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.card:hover .play-overlay {
+.play-overlay {
+  top: 40%;
+  font-size: 2rem;
+  /* color: white; */
+  z-index: 2;
+}
+
+.info {
+  bottom: 10%;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.card:hover .play-overlay,
+.card:hover .info {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .play-overlay i {
   font-size: 2rem;
   color: white;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* Search Overlay */
