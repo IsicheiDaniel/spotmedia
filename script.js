@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 'auto',
     spaceBetween: 12,
     freeMode: true,
-    
+    nextEl: 'swiper-button-next-featured'
   });
 });
 

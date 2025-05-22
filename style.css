@@ -135,7 +135,7 @@ main {
 }
 
 .info {
-  bottom: 10%;
+  bottom: 12%;
   color: white;
   font-weight: bold;
   font-size: 1rem;
@@ -143,11 +143,24 @@ main {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+@media (max-width: 600px) {
+  .info {
+  bottom: 5%;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  z-index: 2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+}
+
 .card:hover .play-overlay,
 .card:hover .info {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
 
 .play-overlay i {
   font-size: 2rem;
@@ -240,6 +253,7 @@ main {
     margin-top: 1.2rem;
   }
 }
+
 
 .swiper-container-wrap {
   position: relative;
@@ -698,5 +712,120 @@ main {
 
   .footer-social {
     margin-top: 1rem;
+  }
+}
+
+/* about page */
+/* Hero Section */
+.page-hero {
+  height: 300px;
+  background: url('assets/images/hero-bg.jpg') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-hero h1 {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 2;
+  text-align: center;
+}
+
+/* About Section */
+.about-section {
+  background-color: #fff;
+  padding: 4rem 2rem;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.about-text h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: #444;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .page-hero {
+    height: 220px;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
   }
 }
