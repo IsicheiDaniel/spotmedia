@@ -5,7 +5,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Poppins', sans-serif;
   background-color: #111;
   color: white;
   overflow-x: hidden;
@@ -103,6 +105,7 @@ main {
 .card .info {
   padding: 0.5rem;
   text-align: center;
+  line-height: 20px; /* fixed value */
 }
 
 /* .play-overlay {
@@ -310,6 +313,15 @@ main {
   color: white;
   position: relative;
 }
+
+.swiper-slide.card {
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+/* .swiper-slide.card:hover {
+  border: 2px solid white;
+} */
 
 @media (max-width: 768px) {
   .swiper-slide.card {
@@ -827,5 +839,48 @@ main {
 
   .about-text p {
     font-size: 1rem;
+  }
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#backToTop:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* Tablet-friendly tweaks */
+@media (max-width: 768px) {
+  #backToTop {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile-friendly tweaks */
+@media (max-width: 480px) {
+  #backToTop {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+    font-size: 14px;
   }
 }

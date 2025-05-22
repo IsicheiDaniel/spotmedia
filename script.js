@@ -57,3 +57,21 @@ const featuredSwiper = new Swiper('.featuredSwiper', {
   }
 });
 
+// back to top button 
+  // Show button after scrolling down
+  window.addEventListener("scroll", () => {
+    const button = document.getElementById("backToTop");
+    if (window.scrollY > 300) {
+      button.style.display = "block";
+    } else {
+      button.style.display = "none";
+    }
+  });
+
+  // Scroll to top on click
+  document.getElementById("backToTop").addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
